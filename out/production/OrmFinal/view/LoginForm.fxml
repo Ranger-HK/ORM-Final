@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="lfContext" prefHeight="626.0" prefWidth="544.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
+   <children>
+      <ImageView fitHeight="189.0" fitWidth="184.0" layoutX="183.0" layoutY="14.0">
+         <image>
+            <Image url="@../assest/1.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="25.0" layoutY="216.0" prefHeight="52.0" prefWidth="503.0" text="SIPSEWANA INSTITUTE" textAlignment="CENTER" textFill="#ff0000d9" underline="true">
+         <font>
+            <Font name="Roboto Black" size="39.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="30.0" layoutY="268.0" prefHeight="46.0" prefWidth="494.0" text="LOGIN FORM" textFill="#ff0000d7" underline="true">
+         <font>
+            <Font name="Roboto Black" size="34.0" />
+         </font>
+      </Label>
+      <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="77.0" layoutY="358.0" prefHeight="37.0" prefWidth="399.0" promptText="User Name" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXPasswordField focusColor="BLACK" labelFloat="true" layoutX="78.0" layoutY="431.0" prefHeight="37.0" prefWidth="399.0" promptText="Password" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="15.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXButton alignment="CENTER" layoutX="174.0" layoutY="502.0" onAction="#btnLoginOnAction" prefHeight="30.0" prefWidth="208.0" ripplerFill="BLACK" style="-fx-background-color: #0652DD; -fx-background-radius: 25;" text="Login" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label alignment="CENTER" layoutX="186.0" layoutY="595.0" prefHeight="17.0" prefWidth="184.0" text="Design By : Ravindu Prathibha" />
+   </children>
+</AnchorPane>

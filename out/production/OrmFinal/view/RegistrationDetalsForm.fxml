@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rdContext" prefHeight="683.0" prefWidth="1219.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegistrationDeatilsFormController">
+   <children>
+      <ImageView fitHeight="154.0" fitWidth="222.0" layoutX="21.0" layoutY="8.0">
+         <image>
+            <Image url="@../assest/1.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="230.0" layoutY="5.0" prefHeight="70.0" prefWidth="812.0" text="SIPSEWANA INSTITUTE" textAlignment="CENTER" textFill="#f85454" underline="true">
+         <font>
+            <Font name="Roboto Black" size="65.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="395.0" layoutY="78.0" prefHeight="54.0" prefWidth="485.0" text="REGISTRATION DETAILS" textAlignment="CENTER" textFill="#0095ff" underline="true">
+         <font>
+            <Font name="Roboto Black" size="39.0" />
+         </font>
+      </Label>
+      <JFXTextField labelFloat="true" layoutX="50.0" layoutY="197.0" onKeyReleased="#txtSearch" prefHeight="28.0" prefWidth="345.0" promptText="Search" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="18.0" />
+         </font>
+      </JFXTextField>
+      <ToggleButton ellipsisString="" layoutX="1155.0" layoutY="24.0" mnemonicParsing="false" onAction="#btnBackToHomeOnAction" prefHeight="40.0" prefWidth="30.0" style="-fx-background-color: white;" styleClass="zoom2" stylesheets="@../style.css">
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="33.0" styleClass="zoom2">
+               <image>
+                  <Image url="@../assest/Users-Exit-icon.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <Label fx:id="lblDate" layoutX="1015.0" layoutY="14.0" prefHeight="43.0" prefWidth="165.0">
+         <font>
+            <Font name="Calisto MT Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTime" layoutX="1015.0" layoutY="44.0" prefHeight="43.0" prefWidth="165.0">
+         <font>
+            <Font name="Calisto MT Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="525.0" layoutY="436.0" prefHeight="28.0" prefWidth="211.0" text="COURSE DETAILS">
+         <font>
+            <Font name="Roboto Black" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="533.0" fitWidth="768.0" layoutX="258.0" layoutY="143.0" mouseTransparent="true" opacity="0.09">
+         <image>
+            <Image url="@../assest/1.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="525.0" layoutY="252.0" prefHeight="28.0" prefWidth="222.0" text="STUDENT DETAILS">
+         <font>
+            <Font name="Roboto Black" size="20.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblProgramme" layoutX="41.0" layoutY="469.0" prefHeight="189.0" prefWidth="1144.0" stylesheets="@../style.css">
+         <columns>
+            <TableColumn fx:id="colProgrammeID" prefWidth="297.0" text="Programme ID" />
+            <TableColumn fx:id="colProgrammeName" prefWidth="293.0" text="Programme Name" />
+            <TableColumn fx:id="colDuration" prefWidth="280.0" text="Duration" />
+            <TableColumn fx:id="colFee" prefWidth="273.0" text="Fee(LKR)" />
+         </columns>
+      </TableView>
+      <TableView fx:id="tblRegister" layoutX="49.0" layoutY="280.0" prefHeight="141.0" prefWidth="1120.0" stylesheets="@../style.css">
+         <columns>
+            <TableColumn fx:id="colRegNo" prefWidth="82.0" text="Reg.No" />
+            <TableColumn fx:id="colName" prefWidth="172.0" text="Name" />
+            <TableColumn fx:id="colAge" prefWidth="64.0" text="Age" />
+            <TableColumn fx:id="colNic" prefWidth="127.0" text="NIC" />
+            <TableColumn fx:id="colContactNumber" prefWidth="149.0" text="Contact Number" />
+            <TableColumn fx:id="colAddress" prefWidth="155.0" text="Address" />
+            <TableColumn fx:id="colDob" prefWidth="128.0" text="DOB" />
+            <TableColumn fx:id="colEmail" prefWidth="142.0" text="E-Mail" />
+            <TableColumn fx:id="colGender" prefWidth="100.0" text="Gender" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

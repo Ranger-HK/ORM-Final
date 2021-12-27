@@ -1,0 +1,92 @@
+
+.zoom:hover {
+    -fx-font-size: 20;
+}
+.zoom2:hover {
+    -fx-font-size: 10;
+}
+
+/*Table Styles Start*/
+.table-view, table-view:focused{
+    -fx-background-insets: 0px;
+    -fx-background-radius: 20px 20px 0px 0px;
+    -fx-padding: 0 0 0 0;
+}
+
+
+.table-view .column-header {
+    -fx-size: 38px;
+    -fx-background-color:#0652DD /*black*/;
+    -fx-font-size: 18;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+}
+
+.table-view .table-row-cell:empty {
+    -fx-background-color: white;
+}
+
+.table-view .table-row-cell:selected {
+/*-fx-background-color:linear-gradient(to right, rgba(119, 8, 245, 0.29), rgba(15, 93, 255, 0.39));*/
+-fx-background-color: linear-gradient(to right, rgba(0, 198, 255, 0.29), rgba(0, 114, 255, 0.39));
+}
+
+.table-view .table-row-cell:selected * {
+    -fx-font-weight: bold;
+    -fx-font-size: 17;
+    -fx-text-fill: rgb(54, 49, 49);
+}
+
+.table-view .table-cell {
+    -fx-font-size: 14;
+}
+
+.table-view .column-header-background {
+/*-fx-background-color: #7708f5;*/
+-fx-background-color: linear-gradient(to right, #1e3c72, #2a5298);
+    -fx-background-radius: 20px 20px 0px 0px;
+    -fx-background-insets: 0 0 0 0;
+    -fx-padding: 10 0 10px 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.column-header {
+    -fx-sort-icon-display: LEFT;
+}
+
+.table-view .arrow {
+    -fx-background-color: white;
+}
+
+/*  Table Styles  */
+.table-view *.scroll-bar:horizontal *.increment-button,
+.table-view *.scroll-bar:horizontal *.decrement-button {
+    -fx-background-color: null;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.table-view *.scroll-bar:horizontal *.increment-arrow,
+.table-view *.scroll-bar:horizontal *.decrement-arrow {
+    -fx-background-color: null;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-shape: null;
+}
+
+.table-view .virtual-flow .scroll-bar:horizontal .track{
+    -fx-background-insets: -1px;
+}
+
+.table-view .column-header-background .filler{
+    -fx-opacity: 0;
+}
+
+/*  End Of Table Styles  */

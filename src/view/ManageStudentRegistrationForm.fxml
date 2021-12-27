@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="srContext" prefHeight="697.0" prefWidth="1219.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageStudentRegistrationFormController">
+   <children>
+      <ImageView fitHeight="137.0" fitWidth="185.0" layoutX="53.0" layoutY="3.0">
+         <image>
+            <Image url="@../assest/1.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="226.0" layoutY="6.0" prefHeight="74.0" prefWidth="812.0" text="SIPSEWANA INSTITUTE" textAlignment="CENTER" textFill="#f85454" underline="true">
+         <font>
+            <Font name="Roboto Black" size="65.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" layoutX="1012.0" layoutY="7.0" prefHeight="43.0" prefWidth="165.0">
+         <font>
+            <Font name="Calisto MT Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTime" layoutX="1012.0" layoutY="40.0" prefHeight="43.0" prefWidth="165.0">
+         <font>
+            <Font name="Calisto MT Bold" size="24.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblRegister" layoutX="59.0" layoutY="509.0" onMouseClicked="#tblOnClicked" prefHeight="176.0" prefWidth="1120.0" stylesheets="@../style.css">
+        <columns>
+          <TableColumn fx:id="colRegNo" prefWidth="82.0" text="Reg.No" />
+          <TableColumn fx:id="colName" prefWidth="172.0" text="Name" />
+            <TableColumn fx:id="colAge" prefWidth="64.0" text="Age" />
+            <TableColumn fx:id="colNic" prefWidth="127.0" text="NIC" />
+            <TableColumn fx:id="colContactNumber" prefWidth="149.0" text="Contact Number" />
+            <TableColumn fx:id="colAddress" prefWidth="155.0" text="Address" />
+            <TableColumn fx:id="colDob" prefWidth="128.0" text="DOB" />
+            <TableColumn fx:id="colEmail" prefWidth="142.0" text="E-Mail" />
+            <TableColumn fx:id="colGender" prefWidth="100.0" text="Gender" />
+        </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="401.0" layoutY="76.0" prefHeight="48.0" prefWidth="490.0" text="STUDENT REGISTRATION" textAlignment="CENTER" textFill="#0095ff" underline="true">
+         <font>
+            <Font name="Roboto Black" size="39.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtRegNo" focusColor="BLACK" labelFloat="true" layoutX="66.0" layoutY="148.0" prefHeight="25.0" prefWidth="156.0" promptText="Reg.No" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="13.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtName" focusColor="BLACK" labelFloat="true" layoutX="271.0" layoutY="148.0" prefHeight="25.0" prefWidth="302.0" promptText="Name" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="13.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtDob" focusColor="BLACK" labelFloat="true" layoutX="421.0" layoutY="198.0" prefHeight="25.0" prefWidth="212.0" promptText="DOB" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="13.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtContactNumber" focusColor="BLACK" labelFloat="true" layoutX="976.0" layoutY="148.0" prefHeight="25.0" prefWidth="198.0" promptText="Contact Number" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="13.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtAddress" focusColor="BLACK" labelFloat="true" layoutX="66.0" layoutY="198.0" prefHeight="25.0" prefWidth="290.0" promptText="Address" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="13.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtAge" focusColor="BLACK" labelFloat="true" layoutX="626.0" layoutY="148.0" prefHeight="25.0" prefWidth="81.0" promptText="Age" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="13.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtEmail" focusColor="BLACK" labelFloat="true" layoutX="689.0" layoutY="198.0" prefHeight="25.0" prefWidth="212.0" promptText="E-Mail" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="13.0" />
+         </font></JFXTextField>
+      <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="66.0" layoutY="465.0" onKeyReleased="#txtSearch" prefHeight="25.0" prefWidth="290.0" promptText="Search" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="13.0" />
+         </font>
+      </JFXTextField>
+      <ImageView fitHeight="552.0" fitWidth="763.0" layoutX="233.0" layoutY="131.0" mouseTransparent="true" opacity="0.08">
+         <image>
+            <Image url="@../assest/1.png" />
+         </image>
+      </ImageView>
+      <ToggleButton ellipsisString="" layoutX="1155.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnBackToHomeOnAction" prefHeight="40.0" prefWidth="30.0" style="-fx-background-color: white;" styleClass="zoom2" stylesheets="@../style.css">
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="33.0" styleClass="zoom2">
+               <image>
+                  <Image url="@../assest/Users-Exit-icon.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#d5d9dd" height="176.0" layoutX="55.0" layoutY="258.0" opacity="0.23" stroke="BLACK" strokeType="INSIDE" width="1129.0" />
+      <JFXComboBox fx:id="cmbProgrammeID01" focusColor="BLACK" layoutX="66.0" layoutY="272.0" prefHeight="25.0" prefWidth="176.0" promptText="Programme ID" unFocusColor="BLACK">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXComboBox>
+      <JFXTextField fx:id="txtProgramme01" focusColor="BLACK" labelFloat="true" layoutX="271.0" layoutY="271.0" prefHeight="25.0" prefWidth="220.0" promptText="Program" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="13.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtFee01" focusColor="BLACK" labelFloat="true" layoutX="707.0" layoutY="270.0" prefHeight="25.0" prefWidth="176.0" promptText="Fee(LKR)" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="13.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="cmbDuration01" focusColor="BLACK" labelFloat="true" layoutX="516.0" layoutY="271.0" prefHeight="25.0" prefWidth="148.0" promptText="Duration" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="13.0" />
+         </font></JFXTextField>
+      <JFXComboBox fx:id="cmbProgrammeID02" focusColor="BLACK" layoutX="66.0" layoutY="317.0" prefHeight="25.0" prefWidth="176.0" promptText="Programme ID" unFocusColor="BLACK">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXComboBox>
+      <JFXTextField fx:id="txtProgramme02" focusColor="BLACK" labelFloat="true" layoutX="271.0" layoutY="316.0" prefHeight="25.0" prefWidth="220.0" promptText="Program" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="13.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtFee02" focusColor="BLACK" labelFloat="true" layoutX="707.0" layoutY="315.0" prefHeight="25.0" prefWidth="176.0" promptText="Fee(LKR)" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="13.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="cmbDuration02" focusColor="BLACK" labelFloat="true" layoutX="516.0" layoutY="316.0" prefHeight="25.0" prefWidth="148.0" promptText="Duration" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="13.0" />
+         </font></JFXTextField>
+      <JFXComboBox fx:id="cmbProgrammeID03" focusColor="BLACK" layoutX="65.0" layoutY="365.0" prefHeight="25.0" prefWidth="176.0" promptText="Programme ID" unFocusColor="BLACK">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXComboBox>
+      <JFXTextField fx:id="txtProgramme03" focusColor="BLACK" labelFloat="true" layoutX="270.0" layoutY="364.0" prefHeight="25.0" prefWidth="220.0" promptText="Program" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="13.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtFee03" focusColor="BLACK" labelFloat="true" layoutX="708.0" layoutY="363.0" prefHeight="25.0" prefWidth="176.0" promptText="Fee(LKR)" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="13.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="cmbDuration03" focusColor="BLACK" labelFloat="true" layoutX="515.0" layoutY="364.0" prefHeight="25.0" prefWidth="148.0" promptText="Duration" unFocusColor="BLACK">
+         <font>
+            <Font name="Roboto" size="13.0" />
+         </font></JFXTextField>
+      <Separator layoutX="37.0" layoutY="448.0" prefHeight="3.0" prefWidth="1158.0" />
+      <Button alignment="CENTER" layoutX="962.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnRemoveOnAction" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #d63031;" text="REMOVE" textFill="WHITE">
+         <font>
+            <Font name="Roboto Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button alignment="CENTER" layoutX="962.0" layoutY="269.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="29.0" prefWidth="165.0" style="-fx-background-color: #0984e3;" text="ADD" textFill="WHITE">
+         <font>
+            <Font name="Roboto Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button alignment="CENTER" layoutX="962.0" layoutY="311.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #C4E538;" text="UPDATE" textFill="WHITE">
+         <font>
+            <Font name="Roboto Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <JFXTextField fx:id="txtNic" focusColor="#001f9a" labelFloat="true" layoutX="748.0" layoutY="148.0" prefHeight="25.0" prefWidth="198.0" promptText="NIC" />
+      <RadioButton fx:id="rdMale" layoutX="966.0" layoutY="197.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="91.0" selected="true" text="Male">
+         <toggleGroup>
+            <ToggleGroup fx:id="gender" />
+         </toggleGroup>
+         <font>
+            <Font name="Roboto" size="18.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="rdFemale" layoutX="1075.0" layoutY="197.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="103.0" selected="true" text="Female" toggleGroup="$gender">
+         <font>
+            <Font name="Roboto" size="18.0" />
+         </font>
+      </RadioButton>
+      <Button alignment="CENTER" layoutX="962.0" layoutY="397.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="165.0" style="-fx-background-color: #d68031;" text="Clear" textFill="WHITE">
+         <font>
+            <Font name="Roboto Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

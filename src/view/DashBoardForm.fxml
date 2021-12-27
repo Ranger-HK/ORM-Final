@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="DashBoardContext" prefHeight="636.0" prefWidth="1029.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardFormController">
+   <children>
+      <ToggleButton alignment="TOP_LEFT" ellipsisString="" layoutX="941.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnLogOutOnAction" prefHeight="54.0" prefWidth="44.0" style="-fx-background-color: white;" styleClass="zoom2" stylesheets="@../style.css">
+         <graphic>
+            <ImageView fitHeight="43.0" fitWidth="43.0" styleClass="zoom2">
+               <image>
+                  <Image url="@../assest/Users-Exit-icon.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <Label alignment="CENTER" layoutX="129.0" layoutY="199.0" prefHeight="99.0" prefWidth="812.0" text="SIPSEWANA INSTITUTE" textAlignment="CENTER" underline="true">
+         <font>
+            <Font name="Roboto Black" size="63.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#f53232" />
+                  <Stop color="#2c2626" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="357.0" layoutY="567.0" stylesheets="@../style.css" text="MANAGE REGISTRATION">
+         <font>
+            <Font name="Roboto Bold" size="28.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Label layoutX="37.0" layoutY="567.0" stylesheets="@../style.css" text="STUDENTS DETAILS">
+         <font>
+            <Font name="Roboto Bold" size="28.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Group layoutX="39.0" layoutY="364.0" styleClass="zoom" stylesheets="@../style.css">
+         <children>
+            <ToggleButton alignment="TOP_LEFT" ellipsisString="" layoutX="15.0" layoutY="19.0" mnemonicParsing="false" onAction="#btnManageStudentDetailsOnAction" prefHeight="157.0" prefWidth="208.0" style="-fx-background-color: white;" styleClass="zoom" stylesheets="@../style.css">
+               <graphic>
+                  <ImageView fitHeight="117.0" fitWidth="193.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" styleClass="zoom">
+                     <image>
+                        <Image url="@../assest/sm.jpg" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+         </children>
+      </Group>
+      <Group layoutX="345.0" layoutY="356.0" styleClass="zoom" stylesheets="@../style.css">
+         <children>
+            <ToggleButton alignment="TOP_LEFT" ellipsisString="" layoutX="82.0" layoutY="9.0" mnemonicParsing="false" onAction="#btnManageRegistrationOnAction" prefHeight="131.0" prefWidth="200.0" style="-fx-background-color: white;" styleClass="zoom" stylesheets="@../style.css">
+               <graphic>
+                  <ImageView fitHeight="143.0" fitWidth="186.0" styleClass="zoom">
+                     <image>
+                        <Image url="@../assest/unnamed.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+         </children>
+      </Group>
+      <Group layoutX="659.0" layoutY="376.0" styleClass="zoom" stylesheets="@../style.css">
+         <children>
+            <ToggleButton alignment="TOP_LEFT" ellipsisString="" layoutX="98.0" layoutY="-23.0" mnemonicParsing="false" onAction="#btnManageCourseOnAction" prefHeight="125.0" prefWidth="127.0" style="-fx-background-color: white;" styleClass="zoom" stylesheets="@../style.css">
+               <graphic>
+                  <ImageView fitHeight="163.0" fitWidth="203.0" styleClass="zoom">
+                     <image>
+                        <Image url="@../assest/registration-1.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+         </children>
+      </Group>
+      <Label layoutX="743.0" layoutY="567.0" text="MANAGE COURSE">
+         <font>
+            <Font name="Roboto Bold" size="28.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <ImageView fitHeight="199.0" fitWidth="259.0" layoutX="414.0" layoutY="5.0">
+         <image>
+            <Image url="@../assest/1.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
