@@ -48,6 +48,7 @@ public class ManageCourseFormController {
 
     ProgrammeBOImpl programmeBO = (ProgrammeBOImpl) BOFactory.getBoFactory().getBO(BOFactory.BoTypes.PROGRAMME);
 
+
     public void initialize(){
         loadDateAndTime();
         showProgrammesOnTable();

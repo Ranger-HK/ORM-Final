@@ -74,4 +74,9 @@ public class ProgrammeBOImpl implements ProgrammeBO {
         }
         return dtoArrayList;
     }
+
+    @Override
+    public List<String> getAllProgramIds() {
+        return programmeDAO.getAllProgramIds();
+    }
 }

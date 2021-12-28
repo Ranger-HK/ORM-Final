@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface ProgrammeDAO extends SuperDAO<Programme,String> {
     List<Programme> searchPrograms(String value);
+
+    List<String> getAllProgramIds();
 }

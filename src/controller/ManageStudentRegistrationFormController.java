@@ -1,7 +1,12 @@
 package controller;
 
+import bo.BOFactory;
+import bo.custom.ProgrammeBO;
+import bo.custom.impl.StudentBOImpl;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import dao.DAOFactory;
+import dao.custom.impl.ProgrammeDAOImpl;
 import entity.Programme;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -22,6 +27,7 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.List;
 
 public class ManageStudentRegistrationFormController {
     public AnchorPane srContext;
@@ -62,8 +68,14 @@ public class ManageStudentRegistrationFormController {
     public ToggleGroup gender;
 
 
+    StudentBOImpl studentBO = (StudentBOImpl) BOFactory.getBoFactory().getBO(BOFactory.BoTypes.STUDENT);
+    private final ProgrammeDAOImpl programDAO = (ProgrammeDAOImpl) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PROGRAMME);
+
+
+
     public void initialize(){
         loadDateAndTime();
+        loadProgramId();
     }
 
     private void loadDateAndTime() {
@@ -109,5 +121,12 @@ public class ManageStudentRegistrationFormController {
     }
 
     public void tblOnClicked(MouseEvent mouseEvent) {
+    }
+
+    private void loadProgramId(){
+        List<String> allProgramIds = programDAO.getAllProgramIds();
+        cmbProgrammeID01.getItems().addAll(allProgramIds);
+        cmbProgrammeID02.getItems().addAll(allProgramIds);
+        cmbProgrammeID03.getItems().addAll(allProgramIds);
     }
 }
