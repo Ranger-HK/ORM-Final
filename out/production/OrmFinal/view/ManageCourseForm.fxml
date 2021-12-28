@@ -15,6 +15,11 @@
 
 <AnchorPane fx:id="cmContext" prefHeight="683.0" prefWidth="1219.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageCourseFormController">
    <children>
+      <ImageView fitHeight="470.0" fitWidth="302.0" layoutX="477.0" layoutY="149.0" opacity="0.09" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assest/1.png" />
+         </image>
+      </ImageView>
       <ImageView fitHeight="173.0" fitWidth="190.0" layoutX="35.0" layoutY="11.0">
          <image>
             <Image url="@../assest/1.png" />
@@ -123,10 +128,5 @@
             <Font name="Calisto MT Bold" size="24.0" />
          </font>
       </Label>
-      <ImageView fitHeight="470.0" fitWidth="302.0" layoutX="477.0" layoutY="149.0" opacity="0.09" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assest/1.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

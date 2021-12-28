@@ -3,10 +3,12 @@ package controller;
 import bo.BOFactory;
 import bo.custom.ProgrammeBO;
 import bo.custom.impl.StudentBOImpl;
+import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dao.DAOFactory;
 import dao.custom.impl.ProgrammeDAOImpl;
+import dto.StudentDTO;
 import entity.Programme;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -66,11 +68,15 @@ public class ManageStudentRegistrationFormController {
     public RadioButton rdMale;
     public RadioButton rdFemale;
     public ToggleGroup gender;
+    public JFXCheckBox cb1;
+    public JFXCheckBox cb2;
+    public JFXCheckBox cb3;
+    public JFXTextField txtSearchId;
+
 
 
     StudentBOImpl studentBO = (StudentBOImpl) BOFactory.getBoFactory().getBO(BOFactory.BoTypes.STUDENT);
     private final ProgrammeDAOImpl programDAO = (ProgrammeDAOImpl) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PROGRAMME);
-
 
 
     public void initialize(){
@@ -111,8 +117,26 @@ public class ManageStudentRegistrationFormController {
     }
 
     public void btnAddOnAction(ActionEvent actionEvent) {
+     StudentDTO studentDTO = new StudentDTO(
+                txtRegNo.getText(),
+                txtName.getText(),
+                Integer.parseInt(txtAge.getText()),
+                txtContactNumber.getText(),
+                txtAddress.getText(),
+                txtDob.getText(),
+                txtEmail.getText(),
+                txtNic.getText(),
+                SelectGender()
+
+        );
+        if (studentBO.add(studentDTO)){
+            new Alert(Alert.AlertType.CONFIRMATION,"Programme Added").show();
+        }else {
+            new Alert(Alert.AlertType.WARNING,"Try Again").show();
+        }
 
     }
+
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
     }
@@ -128,5 +152,14 @@ public class ManageStudentRegistrationFormController {
         cmbProgrammeID01.getItems().addAll(allProgramIds);
         cmbProgrammeID02.getItems().addAll(allProgramIds);
         cmbProgrammeID03.getItems().addAll(allProgramIds);
+    }
+    public String SelectGender() {
+        String selectGender = null;
+        if (rdMale.isSelected()) {
+            selectGender = "Male";
+        } else if (rdFemale.isSelected()) {
+            selectGender = "Female";
+        }
+        return selectGender;
     }
 }

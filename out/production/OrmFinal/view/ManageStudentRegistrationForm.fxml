@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
@@ -19,6 +20,11 @@
 
 <AnchorPane fx:id="srContext" prefHeight="697.0" prefWidth="1219.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageStudentRegistrationFormController">
    <children>
+      <ImageView fitHeight="552.0" fitWidth="763.0" layoutX="233.0" layoutY="131.0" mouseTransparent="true" opacity="0.08">
+         <image>
+            <Image url="@../assest/1.png" />
+         </image>
+      </ImageView>
       <ImageView fitHeight="137.0" fitWidth="185.0" layoutX="53.0" layoutY="3.0">
          <image>
             <Image url="@../assest/1.png" />
@@ -85,16 +91,11 @@
          <font>
             <Font name="Roboto" size="13.0" />
          </font></JFXTextField>
-      <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="66.0" layoutY="465.0" onKeyReleased="#txtSearch" prefHeight="25.0" prefWidth="290.0" promptText="Search" unFocusColor="BLACK">
+      <JFXTextField fx:id="txtSearchId" focusColor="BLACK" labelFloat="true" layoutX="66.0" layoutY="465.0" onKeyReleased="#txtSearch" prefHeight="25.0" prefWidth="290.0" promptText="Search" unFocusColor="BLACK">
          <font>
             <Font name="Roboto" size="13.0" />
          </font>
       </JFXTextField>
-      <ImageView fitHeight="552.0" fitWidth="763.0" layoutX="233.0" layoutY="131.0" mouseTransparent="true" opacity="0.08">
-         <image>
-            <Image url="@../assest/1.png" />
-         </image>
-      </ImageView>
       <ToggleButton ellipsisString="" layoutX="1155.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnBackToHomeOnAction" prefHeight="40.0" prefWidth="30.0" style="-fx-background-color: white;" styleClass="zoom2" stylesheets="@../style.css">
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="33.0" styleClass="zoom2">
@@ -107,7 +108,7 @@
             </ImageView>
          </graphic>
       </ToggleButton>
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#d5d9dd" height="176.0" layoutX="55.0" layoutY="258.0" opacity="0.23" stroke="BLACK" strokeType="INSIDE" width="1129.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#d5d9dd" height="176.0" layoutX="8.0" layoutY="258.0" opacity="0.23" stroke="BLACK" strokeType="INSIDE" width="1176.0" />
       <JFXComboBox fx:id="cmbProgrammeID01" focusColor="BLACK" layoutX="66.0" layoutY="272.0" prefHeight="25.0" prefWidth="176.0" promptText="Programme ID" unFocusColor="BLACK">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -203,5 +204,8 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <JFXCheckBox fx:id="cb1" layoutX="22.0" layoutY="280.0" prefHeight="14.0" prefWidth="81.0" text=" " />
+      <JFXCheckBox fx:id="cb2" layoutX="22.0" layoutY="324.0" prefHeight="14.0" prefWidth="81.0" text=" " />
+      <JFXCheckBox fx:id="cb3" layoutX="22.0" layoutY="372.0" prefHeight="14.0" prefWidth="81.0" text=" " />
    </children>
 </AnchorPane>
