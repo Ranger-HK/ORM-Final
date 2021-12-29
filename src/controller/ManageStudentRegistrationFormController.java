@@ -13,16 +13,19 @@ import entity.Programme;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import view.tm.StudentTM;
 
 import java.io.IOException;
 import java.net.URL;
@@ -35,7 +38,7 @@ public class ManageStudentRegistrationFormController {
     public AnchorPane srContext;
     public Label lblDate;
     public Label lblTime;
-    public TableView tblRegister;
+    public TableView<StudentTM>tblRegister;
     public TableColumn colRegNo;
     public TableColumn colName;
     public TableColumn colAge;
@@ -82,6 +85,7 @@ public class ManageStudentRegistrationFormController {
     public void initialize(){
         loadDateAndTime();
         loadProgramId();
+        showStudentsOnTable();
     }
 
     private void loadDateAndTime() {
@@ -131,10 +135,26 @@ public class ManageStudentRegistrationFormController {
         );
         if (studentBO.add(studentDTO)){
             new Alert(Alert.AlertType.CONFIRMATION,"Programme Added").show();
+            showStudentsOnTable();
         }else {
             new Alert(Alert.AlertType.WARNING,"Try Again").show();
         }
 
+    }
+
+    private void showStudentsOnTable() {
+        ObservableList<StudentTM> list = studentBO.find();
+        colRegNo.setCellValueFactory(new PropertyValueFactory<>("regNumber"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colAge.setCellValueFactory(new PropertyValueFactory<>("age"));
+        colContactNumber.setCellValueFactory(new PropertyValueFactory<>("contactNumber"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colDob.setCellValueFactory(new PropertyValueFactory<>("dob"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colNic.setCellValueFactory(new PropertyValueFactory<>("nic"));
+        colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+
+        tblRegister.setItems(list);
     }
 
 
