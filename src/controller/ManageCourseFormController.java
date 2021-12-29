@@ -49,7 +49,7 @@ public class ManageCourseFormController {
     ProgrammeBOImpl programmeBO = (ProgrammeBOImpl) BOFactory.getBoFactory().getBO(BOFactory.BoTypes.PROGRAMME);
 
 
-    public void initialize(){
+    public void initialize() {
         loadDateAndTime();
         showProgrammesOnTable();
     }
@@ -59,10 +59,10 @@ public class ManageCourseFormController {
         SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
         lblDate.setText(f.format(date));
 
-        Timeline time = new Timeline(new KeyFrame(Duration.ZERO, e->{
+        Timeline time = new Timeline(new KeyFrame(Duration.ZERO, e -> {
             LocalTime currentTime = LocalTime.now();
             lblTime.setText(
-                    currentTime.getHour()+ " : "+currentTime.getMinute()+ " : "+currentTime.getSecond()
+                    currentTime.getHour() + " : " + currentTime.getMinute() + " : " + currentTime.getSecond()
             );
         }),
                 new KeyFrame(Duration.seconds(1))
@@ -78,7 +78,7 @@ public class ManageCourseFormController {
         window.setScene(new Scene(load));
         window.centerOnScreen();
         window.setResizable(false);
-        System.out.println("");
+        System.out.println();
     }
 
     public void txtSearch(KeyEvent keyEvent) {
@@ -93,24 +93,34 @@ public class ManageCourseFormController {
         if (programmeBO.delete(programmeID)) {
             showProgrammesOnTable();
             new Alert(Alert.AlertType.CONFIRMATION, "DELETED successfully").show();
+            clearText();
+
         } else {
             new Alert(Alert.AlertType.WARNING, "Try Again").show();
         }
-          }
+    }
+
+    private void clearText() {
+        txtProgrammeID.clear();
+        txtProgramme.clear();
+        txtDuration.clear();
+        txtFee.clear();
+    }
 
     public void btnAddOnAction(ActionEvent actionEvent) {
         ProgrammeDTO programme = new ProgrammeDTO(
-        txtProgrammeID.getText(),
+                txtProgrammeID.getText(),
                 txtProgramme.getText(),
                 txtDuration.getText(),
                 Double.parseDouble(txtFee.getText())
-                );
+        );
 
-        if(programmeBO.add(programme)){
+        if (programmeBO.add(programme)) {
             showProgrammesOnTable();
-            new Alert(Alert.AlertType.CONFIRMATION,"Course Add Successfully").show();
-        }else {
-            new Alert(Alert.AlertType.WARNING,"Something Went Wrong").show();
+            clearText();
+            new Alert(Alert.AlertType.CONFIRMATION, "Course Add Successfully").show();
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Something Went Wrong").show();
         }
     }
 
@@ -126,6 +136,7 @@ public class ManageCourseFormController {
         );
         if (programmeBO.update(program)) {
             showProgrammesOnTable();
+            clearText();
             new Alert(Alert.AlertType.CONFIRMATION, "Program Updated Successfully").show();
         } else {
             new Alert(Alert.AlertType.WARNING, "Try Again").show();
@@ -150,15 +161,16 @@ public class ManageCourseFormController {
     }
 
     public void tblOnMouseClicked(MouseEvent mouseEvent) {
-    try {
+        try {
             ProgrammeTM selectRow = tblProgramme.getSelectionModel().getSelectedItem();
             txtProgrammeID.setText(selectRow.getProgrammeID());
             txtProgramme.setText(selectRow.getProgrammeName());
             txtDuration.setText(selectRow.getDuration());
             txtFee.setText(String.valueOf(selectRow.getFee()));
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
     }
+
 
 }

@@ -39,7 +39,7 @@ public class ManageStudentRegistrationFormController {
     public AnchorPane srContext;
     public Label lblDate;
     public Label lblTime;
-    public TableView<StudentTM> tblRegister;
+    public TableView<StudentTM>tblRegister;
     public TableColumn colRegNo;
     public TableColumn colName;
     public TableColumn colAge;
@@ -124,7 +124,8 @@ public class ManageStudentRegistrationFormController {
     }
 
     public void txtSearch(KeyEvent keyEvent) {
-
+        ObservableList<StudentTM> search = studentBO.search(txtSearchId.getText());
+        tblRegister.setItems(search);
     }
 
     public void btnRemoveOnAction(ActionEvent actionEvent) {
