@@ -39,7 +39,7 @@ public class ManageStudentRegistrationFormController {
     public AnchorPane srContext;
     public Label lblDate;
     public Label lblTime;
-    public TableView<StudentTM>tblRegister;
+    public TableView<StudentTM> tblRegister;
     public TableColumn colRegNo;
     public TableColumn colName;
     public TableColumn colAge;
@@ -84,6 +84,7 @@ public class ManageStudentRegistrationFormController {
         loadDateAndTime();
         loadProgramId();
         showStudentsOnTable();
+        setDisable();
         cmbProgrammeID01.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             setProgramData(txtProgramme01, cmbDuration01, txtFee01, newValue);
         });
@@ -261,4 +262,40 @@ public class ManageStudentRegistrationFormController {
         }
     }
 
+    public void onMouseClick(MouseEvent mouseEvent) {
+        if (cb2.isSelected()) {
+            cmbProgrammeID02.setDisable(false);
+            txtProgramme02.setDisable(false);
+            cmbDuration02.setDisable(false);
+            txtFee02.setDisable(false);
+        } else {
+            cmbProgrammeID02.setDisable(true);
+            txtProgramme02.setDisable(true);
+            cmbDuration02.setDisable(true);
+            txtFee02.setDisable(true);
+        }
+        if (cb3.isSelected()) {
+            cmbProgrammeID03.setDisable(false);
+            txtProgramme03.setDisable(false);
+            cmbDuration03.setDisable(false);
+            txtFee03.setDisable(false);
+        } else {
+            cmbProgrammeID03.setDisable(true);
+            txtProgramme03.setDisable(true);
+            cmbDuration03.setDisable(true);
+            txtFee03.setDisable(true);
+        }
+    }
+
+    private void setDisable(){
+        cmbProgrammeID02.setDisable(true);
+        txtProgramme02.setDisable(true);
+        cmbDuration02.setDisable(true);
+        txtFee02.setDisable(true);
+
+        cmbProgrammeID03.setDisable(true);
+        txtProgramme03.setDisable(true);
+        cmbDuration03.setDisable(true);
+        txtFee03.setDisable(true);
+    }
 }

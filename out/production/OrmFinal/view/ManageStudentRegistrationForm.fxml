@@ -204,8 +204,8 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <JFXCheckBox fx:id="cb1" layoutX="22.0" layoutY="280.0" prefHeight="14.0" prefWidth="81.0" text=" " />
-      <JFXCheckBox fx:id="cb2" layoutX="22.0" layoutY="324.0" prefHeight="14.0" prefWidth="81.0" text=" " />
-      <JFXCheckBox fx:id="cb3" layoutX="22.0" layoutY="372.0" prefHeight="14.0" prefWidth="81.0" text=" " />
+      <JFXCheckBox fx:id="cb1" layoutX="22.0" layoutY="280.0" prefHeight="18.0" prefWidth="12.0" selected="true" text=" " />
+      <JFXCheckBox fx:id="cb2" layoutX="22.0" layoutY="324.0" onMouseClicked="#onMouseClick" prefHeight="18.0" prefWidth="16.0" text=" " />
+      <JFXCheckBox fx:id="cb3" layoutX="22.0" layoutY="372.0" onMouseClicked="#onMouseClick" prefHeight="18.0" prefWidth="21.0" text=" " />
    </children>
 </AnchorPane>
