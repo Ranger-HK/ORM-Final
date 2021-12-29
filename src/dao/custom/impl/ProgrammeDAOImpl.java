@@ -1,6 +1,7 @@
 package dao.custom.impl;
 
 import dao.custom.ProgrammeDAO;
+import dto.ProgrammeDTO;
 import entity.Programme;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -34,7 +35,7 @@ public class ProgrammeDAOImpl implements ProgrammeDAO {
     public Boolean delete(String s) {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        Programme programme = session.get(Programme.class,s);
+        Programme programme = session.get(Programme.class, s);
         session.delete(programme);
         transaction.commit();
         session.close();
@@ -77,4 +78,33 @@ public class ProgrammeDAOImpl implements ProgrammeDAO {
         session.close();
         return list;
     }
+
+    @Override
+    public ProgrammeDTO getProgramList(String id) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("FROM Programme p WHERE p.programmeID = ?1");
+        query.setParameter(1, id);
+        List<Programme> resultList = query.getResultList();
+
+        transaction.commit();
+        session.close();
+        ProgrammeDTO programDTO = null;
+        if (!resultList.isEmpty()) {
+            for (Programme list : resultList
+            ) {
+                programDTO = new ProgrammeDTO(
+                        list.getProgrammeName(),
+                        list.getDuration(),
+                        list.getFee()
+                );
+            }
+            return programDTO;
+        } else {
+            return null;
+        }
+    }
 }
+
+

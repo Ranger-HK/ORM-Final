@@ -6,6 +6,12 @@ public class ProgrammeDTO {
     private String duration;
     private double fee;
 
+    public ProgrammeDTO(String programmeName, String duration, double fee) {
+        this.programmeName = programmeName;
+        this.duration = duration;
+        this.fee = fee;
+    }
+
     public ProgrammeDTO() {
     }
 

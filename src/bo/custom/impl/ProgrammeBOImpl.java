@@ -4,18 +4,16 @@ import bo.custom.ProgrammeBO;
 import dao.DAOFactory;
 import dao.custom.impl.ProgrammeDAOImpl;
 import dto.ProgrammeDTO;
-import dto.StudentDTO;
 import entity.Programme;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import view.tm.ProgrammeTM;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 
 public class ProgrammeBOImpl implements ProgrammeBO {
     ProgrammeDAOImpl programmeDAO = (ProgrammeDAOImpl) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PROGRAMME);
+
     @Override
     public boolean add(ProgrammeDTO programmeDTO) {
         return programmeDAO.add(new Programme(
@@ -28,18 +26,19 @@ public class ProgrammeBOImpl implements ProgrammeBO {
 
     @Override
     public ObservableList<ProgrammeTM> find() {
-        List<Programme>list = programmeDAO.find();
-        ObservableList<ProgrammeTM> dtoArrayList= FXCollections.observableArrayList();
+        List<Programme> list = programmeDAO.find();
+        ObservableList<ProgrammeTM> dtoArrayList = FXCollections.observableArrayList();
 
-        ProgrammeDTO programmeDTO=null;
+        ProgrammeDTO programmeDTO = null;
 
-        for (Programme programme:list
-             ) {dtoArrayList.add(new ProgrammeTM(
-                programme.getProgrammeID(),
-                programme.getProgrammeName(),
-                programme.getDuration(),
-                programme.getFee()
-                ));
+        for (Programme programme : list
+        ) {
+            dtoArrayList.add(new ProgrammeTM(
+                    programme.getProgrammeID(),
+                    programme.getProgrammeName(),
+                    programme.getDuration(),
+                    programme.getFee()
+            ));
         }
         return dtoArrayList;
     }
@@ -64,7 +63,7 @@ public class ProgrammeBOImpl implements ProgrammeBO {
         List<Programme> list = programmeDAO.searchPrograms(value);
         ObservableList<ProgrammeTM> dtoArrayList = FXCollections.observableArrayList();
 
-        for (Programme program:list) {
+        for (Programme program : list) {
             dtoArrayList.add(new ProgrammeTM(
                     program.getProgrammeID(),
                     program.getProgrammeName(),
@@ -78,5 +77,10 @@ public class ProgrammeBOImpl implements ProgrammeBO {
     @Override
     public List<String> getAllProgramIds() {
         return programmeDAO.getAllProgramIds();
+    }
+
+    @Override
+    public ProgrammeDTO getProgramDetails(String id) {
+        return programmeDAO.getProgramList(id);
     }
 }
