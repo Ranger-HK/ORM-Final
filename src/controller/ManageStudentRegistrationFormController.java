@@ -10,7 +10,6 @@ import dao.DAOFactory;
 import dao.custom.impl.ProgrammeDAOImpl;
 import dao.custom.impl.StudentDAOImpl;
 import dto.ProgrammeDTO;
-import dto.StudentDTO;
 import entity.Student;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -94,15 +93,15 @@ public class ManageStudentRegistrationFormController {
         setDisable();
         cmbProgrammeID01.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             setProgramData(txtProgramme01, cmbDuration01, txtFee01, newValue);
-            cmb1=newValue;
+            cmb1 = newValue;
         });
         cmbProgrammeID02.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             setProgramData(txtProgramme02, cmbDuration02, txtFee02, newValue);
-            cmb2=newValue;
+            cmb2 = newValue;
         });
         cmbProgrammeID03.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             setProgramData(txtProgramme03, cmbDuration03, txtFee03, newValue);
-            cmb3=newValue;
+            cmb3 = newValue;
         });
 
 
@@ -191,23 +190,8 @@ public class ManageStudentRegistrationFormController {
 
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
-        StudentTM selectedItem = tblRegister.getSelectionModel().getSelectedItem();
-        String studentId = selectedItem.getRegNumber();
-        StudentDTO studentDTO = new StudentDTO(
-                txtRegNo.getText(),
-                txtName.getText(),
-                Integer.parseInt(txtAge.getText()),
-                txtContactNumber.getText(),
-                txtAddress.getText(),
-                txtDob.getText(),
-                txtEmail.getText(),
-                txtNic.getText(),
-                SelectGender()
-        );
-        if (studentBO.update(studentDTO)) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Program Updated").show();
-            clearTexts();
-            showStudentsOnTable();
+        if (studentDAO.updateNatively(txtRegNo.getText(), cmb1)) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Program Added").show();
         } else {
             new Alert(Alert.AlertType.WARNING, "Try Again").show();
         }
@@ -241,9 +225,9 @@ public class ManageStudentRegistrationFormController {
             txtEmail.setText(selectedStudents.getEmail());
             txtNic.setText(selectedStudents.getNic());
 
-            if (selectedStudents.getGender().equals("Male")){
+            if (selectedStudents.getGender().equals("Male")) {
                 rdMale.setSelected(true);
-            }else if (selectedStudents.getGender().equals("Female")){
+            } else if (selectedStudents.getGender().equals("Female")) {
                 rdFemale.setSelected(true);
             }
         } catch (Exception e) {

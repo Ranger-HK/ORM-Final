@@ -10,8 +10,6 @@ public interface StudentDAO extends SuperDAO<Student, String> {
 
     boolean register(Student student, String cmb1, String cmb2, String cmb3);
 
-    boolean deleteRegister(Student student, String cmb1, String cmb2, String cmb3);
-
     boolean updateNatively(String studentRegNo, String cmb1);
 
 

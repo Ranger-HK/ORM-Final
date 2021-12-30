@@ -98,10 +98,6 @@ public class StudentDAOImpl implements StudentDAO {
         return true;
     }
 
-    @Override
-    public boolean deleteRegister(Student student, String cmb1, String cmb2, String cmb3) {
-        return false;
-    }
 
     @Override
     public boolean updateNatively(String studentRegNo, String cmb1) {
