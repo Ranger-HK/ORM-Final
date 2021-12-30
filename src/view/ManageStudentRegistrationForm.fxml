@@ -174,7 +174,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button alignment="CENTER" layoutX="962.0" layoutY="311.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #C4E538;" text="UPDATE" textFill="WHITE">
+      <Button alignment="CENTER" layoutX="962.0" layoutY="311.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #C4E538;" text="ADD PROGRAMS" textFill="WHITE">
          <font>
             <Font name="Roboto Bold" size="15.0" />
          </font>

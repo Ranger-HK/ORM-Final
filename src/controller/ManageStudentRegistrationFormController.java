@@ -8,8 +8,10 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dao.DAOFactory;
 import dao.custom.impl.ProgrammeDAOImpl;
+import dao.custom.impl.StudentDAOImpl;
 import dto.ProgrammeDTO;
 import dto.StudentDTO;
+import entity.Student;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -76,9 +78,14 @@ public class ManageStudentRegistrationFormController {
     public JFXCheckBox cb2;
     public JFXCheckBox cb3;
     public JFXTextField txtSearchId;
+    String cmb1;
+    String cmb2;
+    String cmb3;
+
 
     StudentBOImpl studentBO = (StudentBOImpl) BOFactory.getBoFactory().getBO(BOFactory.BoTypes.STUDENT);
     ProgrammeBOImpl programmeBO = (ProgrammeBOImpl) BOFactory.getBoFactory().getBO(BOFactory.BoTypes.PROGRAMME);
+    StudentDAOImpl studentDAO = (StudentDAOImpl) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
 
     public void initialize() {
         loadDateAndTime();
@@ -87,12 +94,15 @@ public class ManageStudentRegistrationFormController {
         setDisable();
         cmbProgrammeID01.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             setProgramData(txtProgramme01, cmbDuration01, txtFee01, newValue);
+            cmb1=newValue;
         });
         cmbProgrammeID02.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             setProgramData(txtProgramme02, cmbDuration02, txtFee02, newValue);
+            cmb2=newValue;
         });
         cmbProgrammeID03.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             setProgramData(txtProgramme03, cmbDuration03, txtFee03, newValue);
+            cmb3=newValue;
         });
 
 
@@ -142,24 +152,24 @@ public class ManageStudentRegistrationFormController {
     }
 
     public void btnAddOnAction(ActionEvent actionEvent) {
-        StudentDTO studentDTO = new StudentDTO(
-                txtRegNo.getText(),
-                txtName.getText(),
-                Integer.parseInt(txtAge.getText()),
-                txtContactNumber.getText(),
-                txtAddress.getText(),
-                txtDob.getText(),
-                txtEmail.getText(),
-                txtNic.getText(),
-                SelectGender()
+        Student student1 = new Student();
+        student1.setRegNumber(txtRegNo.getText());
+        student1.setName(txtName.getText());
+        student1.setAge(Integer.parseInt(txtAge.getText()));
+        student1.setContactNumber(txtContactNumber.getText());
+        student1.setAddress(txtAddress.getText());
+        student1.setDob(txtDob.getText());
+        student1.setEmail(txtEmail.getText());
+        student1.setNic(txtNic.getText());
+        student1.setGender(SelectGender());
 
-        );
-        if (studentBO.add(studentDTO)) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Programme Added").show();
+        if (studentDAO.register(student1, cmb1, cmb2, cmb3)) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Student Registered").show();
             showStudentsOnTable();
-            clearTexts();
+
         } else {
             new Alert(Alert.AlertType.WARNING, "Try Again").show();
+
         }
 
     }
@@ -196,8 +206,8 @@ public class ManageStudentRegistrationFormController {
         );
         if (studentBO.update(studentDTO)) {
             new Alert(Alert.AlertType.CONFIRMATION, "Program Updated").show();
-            showStudentsOnTable();
             clearTexts();
+            showStudentsOnTable();
         } else {
             new Alert(Alert.AlertType.WARNING, "Try Again").show();
         }
@@ -230,6 +240,12 @@ public class ManageStudentRegistrationFormController {
             txtDob.setText(selectedStudents.getDob());
             txtEmail.setText(selectedStudents.getEmail());
             txtNic.setText(selectedStudents.getNic());
+
+            if (selectedStudents.getGender().equals("Male")){
+                rdMale.setSelected(true);
+            }else if (selectedStudents.getGender().equals("Female")){
+                rdFemale.setSelected(true);
+            }
         } catch (Exception e) {
         }
     }
@@ -287,7 +303,7 @@ public class ManageStudentRegistrationFormController {
         }
     }
 
-    private void setDisable(){
+    private void setDisable() {
         cmbProgrammeID02.setDisable(true);
         txtProgramme02.setDisable(true);
         cmbDuration02.setDisable(true);
