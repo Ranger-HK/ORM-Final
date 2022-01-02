@@ -28,7 +28,7 @@
             <Font name="Roboto Black" size="39.0" />
          </font>
       </Label>
-      <JFXTextField labelFloat="true" layoutX="50.0" layoutY="197.0" onKeyReleased="#txtSearch" prefHeight="28.0" prefWidth="345.0" promptText="Search" unFocusColor="BLACK">
+      <JFXTextField fx:id="txtSearch" labelFloat="true" layoutX="50.0" layoutY="197.0" onKeyReleased="#txtSearch" prefHeight="28.0" prefWidth="345.0" promptText="Search" unFocusColor="BLACK">
          <font>
             <Font name="Roboto" size="18.0" />
          </font>
@@ -78,7 +78,7 @@
             <TableColumn fx:id="colFee" prefWidth="273.0" text="Fee(LKR)" />
          </columns>
       </TableView>
-      <TableView fx:id="tblRegister" layoutX="49.0" layoutY="280.0" prefHeight="141.0" prefWidth="1120.0" stylesheets="@../style.css">
+      <TableView fx:id="tblRegister" layoutX="49.0" layoutY="280.0" onMouseClicked="#onMouseClickStudentTbl" prefHeight="141.0" prefWidth="1120.0" stylesheets="@../style.css">
          <columns>
             <TableColumn fx:id="colRegNo" prefWidth="82.0" text="Reg.No" />
             <TableColumn fx:id="colName" prefWidth="172.0" text="Name" />
