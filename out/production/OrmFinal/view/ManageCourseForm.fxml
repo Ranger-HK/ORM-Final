@@ -41,22 +41,22 @@
             <Font name="Roboto" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtProgrammeID" focusColor="BLACK" labelFloat="true" layoutX="29.0" layoutY="215.0" prefHeight="37.0" prefWidth="178.0" promptText="Programme ID" unFocusColor="BLACK">
+      <JFXTextField fx:id="txtProgrammeID" focusColor="BLACK" labelFloat="true" layoutX="29.0" layoutY="215.0" onKeyReleased="#txtCourseKeyRelease" prefHeight="37.0" prefWidth="178.0" promptText="Programme ID" unFocusColor="BLACK">
          <font>
             <Font name="Roboto" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtProgramme" focusColor="BLACK" labelFloat="true" layoutX="309.0" layoutY="215.0" prefHeight="37.0" prefWidth="302.0" promptText="Programme" unFocusColor="BLACK">
+      <JFXTextField fx:id="txtProgramme" focusColor="BLACK" labelFloat="true" layoutX="309.0" layoutY="215.0" onKeyReleased="#txtCourseKeyRelease" prefHeight="37.0" prefWidth="302.0" promptText="Programme" unFocusColor="BLACK">
          <font>
             <Font name="Roboto" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtDuration" focusColor="BLACK" labelFloat="true" layoutX="684.0" layoutY="215.0" prefHeight="37.0" prefWidth="210.0" promptText="Duration" unFocusColor="BLACK">
+      <JFXTextField fx:id="txtDuration" focusColor="BLACK" labelFloat="true" layoutX="684.0" layoutY="215.0" onKeyReleased="#txtCourseKeyRelease" prefHeight="37.0" prefWidth="210.0" promptText="Duration" unFocusColor="BLACK">
          <font>
             <Font name="Roboto" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtFee" focusColor="BLACK" labelFloat="true" layoutX="966.0" layoutY="215.0" prefHeight="37.0" prefWidth="210.0" promptText="Fee (LKR)" unFocusColor="BLACK">
+      <JFXTextField fx:id="txtFee" focusColor="BLACK" labelFloat="true" layoutX="966.0" layoutY="215.0" onKeyReleased="#txtCourseKeyRelease" prefHeight="37.0" prefWidth="210.0" promptText="Fee (LKR)" unFocusColor="BLACK">
          <font>
             <Font name="Roboto" size="15.0" />
          </font>
@@ -69,7 +69,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button alignment="CENTER" layoutX="571.0" layoutY="292.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="37.0" prefWidth="134.0" style="-fx-background-color: #0984e3;" text="ADD" textFill="WHITE">
+      <Button fx:id="btnAddContext" alignment="CENTER" layoutX="571.0" layoutY="292.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="37.0" prefWidth="134.0" style="-fx-background-color: #0984e3;" text="ADD" textFill="WHITE">
          <font>
             <Font name="Roboto Black" size="15.0" />
          </font>
@@ -97,11 +97,6 @@
             </ImageView>
          </graphic>
       </ToggleButton>
-      <ImageView fitHeight="487.0" fitWidth="721.0" layoutX="280.0" layoutY="174.0" mouseTransparent="true" opacity="0.07" visible="false">
-         <image>
-            <Image url="@../assest/home.png" />
-         </image>
-      </ImageView>
       <TableView fx:id="tblProgramme" layoutX="39.0" layoutY="426.0" onMouseClicked="#tblOnMouseClicked" prefHeight="245.0" prefWidth="1144.0" stylesheets="@../style.css">
          <columns>
             <TableColumn fx:id="colProgrammeID" prefWidth="297.0" text="Programme ID" />
