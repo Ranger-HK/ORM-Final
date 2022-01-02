@@ -63,31 +63,31 @@
             <Font name="Roboto Black" size="39.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtRegNo" focusColor="BLACK" labelFloat="true" layoutX="66.0" layoutY="148.0" prefHeight="25.0" prefWidth="156.0" promptText="Reg.No" unFocusColor="BLACK">
+      <JFXTextField fx:id="txtRegNo" focusColor="BLACK" labelFloat="true" layoutX="66.0" layoutY="148.0" onKeyReleased="#txtStudentRegistrationKeyRelease" prefHeight="25.0" prefWidth="156.0" promptText="Reg.No" unFocusColor="BLACK">
          <font>
             <Font name="Roboto" size="13.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="txtName" focusColor="BLACK" labelFloat="true" layoutX="271.0" layoutY="148.0" prefHeight="25.0" prefWidth="302.0" promptText="Name" unFocusColor="BLACK">
+      <JFXTextField fx:id="txtName" focusColor="BLACK" labelFloat="true" layoutX="271.0" layoutY="148.0" onKeyReleased="#txtStudentRegistrationKeyRelease" prefHeight="25.0" prefWidth="302.0" promptText="Name" unFocusColor="BLACK">
          <font>
             <Font name="Roboto" size="13.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="txtDob" focusColor="BLACK" labelFloat="true" layoutX="421.0" layoutY="198.0" prefHeight="25.0" prefWidth="212.0" promptText="DOB" unFocusColor="BLACK">
+      <JFXTextField fx:id="txtDob" focusColor="BLACK" labelFloat="true" layoutX="421.0" layoutY="198.0" onKeyReleased="#txtStudentRegistrationKeyRelease" prefHeight="25.0" prefWidth="212.0" promptText="DOB" unFocusColor="BLACK">
          <font>
             <Font name="Roboto" size="13.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="txtContactNumber" focusColor="BLACK" labelFloat="true" layoutX="976.0" layoutY="148.0" prefHeight="25.0" prefWidth="198.0" promptText="Contact Number" unFocusColor="BLACK">
+      <JFXTextField fx:id="txtContactNumber" focusColor="BLACK" labelFloat="true" layoutX="976.0" layoutY="148.0" onKeyReleased="#txtStudentRegistrationKeyRelease" prefHeight="25.0" prefWidth="198.0" promptText="Contact Number" unFocusColor="BLACK">
          <font>
             <Font name="Roboto" size="13.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="txtAddress" focusColor="BLACK" labelFloat="true" layoutX="66.0" layoutY="198.0" prefHeight="25.0" prefWidth="290.0" promptText="Address" unFocusColor="BLACK">
+      <JFXTextField fx:id="txtAddress" focusColor="BLACK" labelFloat="true" layoutX="66.0" layoutY="198.0" onKeyReleased="#txtStudentRegistrationKeyRelease" prefHeight="25.0" prefWidth="290.0" promptText="Address" unFocusColor="BLACK">
          <font>
             <Font name="Roboto" size="13.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="txtAge" focusColor="BLACK" labelFloat="true" layoutX="626.0" layoutY="148.0" prefHeight="25.0" prefWidth="81.0" promptText="Age" unFocusColor="BLACK">
+      <JFXTextField fx:id="txtAge" focusColor="BLACK" labelFloat="true" layoutX="626.0" layoutY="148.0" onKeyReleased="#txtStudentRegistrationKeyRelease" prefHeight="25.0" prefWidth="81.0" promptText="Age" unFocusColor="BLACK">
          <font>
             <Font name="Roboto" size="13.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="txtEmail" focusColor="BLACK" labelFloat="true" layoutX="689.0" layoutY="198.0" prefHeight="25.0" prefWidth="212.0" promptText="E-Mail" unFocusColor="BLACK">
+      <JFXTextField fx:id="txtEmail" focusColor="BLACK" labelFloat="true" layoutX="689.0" layoutY="198.0" onKeyReleased="#txtStudentRegistrationKeyRelease" prefHeight="25.0" prefWidth="212.0" promptText="E-Mail" unFocusColor="BLACK">
          <font>
             <Font name="Roboto" size="13.0" />
          </font></JFXTextField>
@@ -166,7 +166,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button alignment="CENTER" layoutX="962.0" layoutY="269.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="29.0" prefWidth="165.0" style="-fx-background-color: #0984e3;" text="ADD" textFill="WHITE">
+      <Button fx:id="btnAddContext" alignment="CENTER" layoutX="962.0" layoutY="269.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="29.0" prefWidth="165.0" style="-fx-background-color: #0984e3;" text="ADD" textFill="WHITE">
          <font>
             <Font name="Roboto Bold" size="15.0" />
          </font>
@@ -182,7 +182,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <JFXTextField fx:id="txtNic" focusColor="#001f9a" labelFloat="true" layoutX="748.0" layoutY="148.0" prefHeight="25.0" prefWidth="198.0" promptText="NIC" />
+      <JFXTextField fx:id="txtNic" focusColor="#001f9a" labelFloat="true" layoutX="748.0" layoutY="148.0" onKeyReleased="#txtStudentRegistrationKeyRelease" prefHeight="25.0" prefWidth="198.0" promptText="NIC" />
       <RadioButton fx:id="rdMale" layoutX="966.0" layoutY="197.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="91.0" selected="true" text="Male">
          <toggleGroup>
             <ToggleGroup fx:id="gender" />

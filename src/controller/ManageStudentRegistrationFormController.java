@@ -21,11 +21,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import util.Validation;
 import view.tm.StudentTM;
 
 import java.io.IOException;
@@ -33,7 +35,9 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class ManageStudentRegistrationFormController {
     private final ProgrammeDAOImpl programDAO = (ProgrammeDAOImpl) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PROGRAMME);
@@ -77,6 +81,7 @@ public class ManageStudentRegistrationFormController {
     public JFXCheckBox cb2;
     public JFXCheckBox cb3;
     public JFXTextField txtSearchId;
+    public Button btnAddContext;
     String cmb1;
     String cmb2;
     String cmb3;
@@ -86,11 +91,23 @@ public class ManageStudentRegistrationFormController {
     ProgrammeBOImpl programmeBO = (ProgrammeBOImpl) BOFactory.getBoFactory().getBO(BOFactory.BoTypes.PROGRAMME);
     StudentDAOImpl studentDAO = (StudentDAOImpl) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
 
+    LinkedHashMap<JFXTextField, Pattern> map = new LinkedHashMap<>();
+    Pattern studentIdPattern = Pattern.compile("^(R)[-]?[0-9]{3}$");
+    Pattern studentNamePattern = Pattern.compile("^[A-z ]{1,30}$");
+    Pattern studentNicPattern = Pattern.compile("^[0-9]{9}[v]|[0-9]{12}$");
+    Pattern studentAddressPattern = Pattern.compile("^[A-z0-9/]{6,30}$");
+    Pattern studentTeleNumberPattern = Pattern.compile("^[0-9]{10}$");
+    Pattern studentAgePattern = Pattern.compile("^[0-9]{2}$");
+    Pattern studentEmailPattern = Pattern.compile("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
+    Pattern studentDobPattern = Pattern.compile("^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$");
+
+
     public void initialize() {
         loadDateAndTime();
         loadProgramId();
         showStudentsOnTable();
         setDisable();
+        storeValidations();
         cmbProgrammeID01.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             setProgramData(txtProgramme01, cmbDuration01, txtFee01, newValue);
             cmb1 = newValue;
@@ -105,6 +122,17 @@ public class ManageStudentRegistrationFormController {
         });
 
 
+    }
+
+    private void storeValidations() {
+        map.put(txtRegNo,studentIdPattern);
+        map.put(txtName,studentNamePattern);
+        map.put(txtAge,studentAgePattern);
+        map.put(txtNic,studentNicPattern);
+        map.put(txtContactNumber,studentTeleNumberPattern);
+        map.put(txtAddress,studentAddressPattern);
+        map.put(txtDob,studentDobPattern);
+        map.put(txtEmail,studentEmailPattern);
     }
 
     private void loadDateAndTime() {
@@ -297,5 +325,18 @@ public class ManageStudentRegistrationFormController {
         txtProgramme03.setDisable(true);
         cmbDuration03.setDisable(true);
         txtFee03.setDisable(true);
+    }
+
+    public void txtStudentRegistrationKeyRelease(KeyEvent keyEvent) {
+        btnAddContext.setDisable(true);
+        Object response = Validation.validate(map,btnAddContext,"Green");
+        if (keyEvent.getCode()== KeyCode.ENTER) {
+            if (response instanceof TextField){
+                TextField error  = (TextField) response;
+                error.requestFocus();
+            }else if (response instanceof Boolean){
+                new Alert(Alert.AlertType.CONFIRMATION, "Done").show();
+            }
+        }
     }
 }
